@@ -1,4 +1,4 @@
-import { type Variants } from "motion";
+import { type Variants, cubicBezier } from "motion";
 
 export const SLIDE_UP_ANIMATION_VARIANTS = {
    item: {
@@ -34,16 +34,16 @@ export const NAV_ANIMATION_VARIANTS: Variants = {
       y: 0,
       transition: {
          type: "tween",
-         ease: "easeOut",
-         duration: 0.25,
+         ease: cubicBezier(0.25, 1, 0.5, 1),
+         duration: 0.5,
       },
    },
    hidden: {
       y: "-100%",
       transition: {
          type: "tween",
-         ease: "easeIn",
-         duration: 0.35,
+         ease: cubicBezier(0.25, 1, 0.5, 1),
+         duration: 0.5,
       },
    },
 }
