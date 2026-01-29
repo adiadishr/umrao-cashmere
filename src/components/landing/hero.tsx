@@ -5,7 +5,7 @@ import { useRef } from "react";
 import { motion } from "motion/react";
 import Image from "next/image";
 import { TextAnimate } from "../ui/text-animate";
-import { slideUpVariants } from "@/animations/animations";
+import { SLIDE_UP_ANIMATION_VARIANTS } from "@/animations/animations";
 
 export function HeroBasicParallax() {
 
@@ -17,7 +17,7 @@ export function HeroBasicParallax() {
    })
 
    const backgroundY = useTransform(scrollYProgress, [0, 1], [-100, 200])
-   const contentY = useTransform(scrollYProgress, [0, 1], ["65%", "35%"])
+   const contentY = useTransform(scrollYProgress, [0, 1], ["55%", "25%"])
    const opacity = useTransform(scrollYProgress, [0, 1], [0.5, 0.75])
 
    return (<>
@@ -45,16 +45,16 @@ export function HeroBasicParallax() {
          {/* Overlay */}
          <motion.div
             style={{ opacity: opacity }}
-            className="absolute inset-0 w-full h-full bg-black z-1"
+            className="absolute inset-0 w-full h-full bg-foreground z-1"
          />
          {/* Content */}
          <div className="container relative px-5 mx-auto z-2">
             <motion.div style={{ y: contentY }} className="w-full">
-               <TextAnimate duration={0.5} as="h1" animate="slideUp" by="word" className="max-w-3xl mx-auto text-4xl/[150%] text-center text-white uppercase mb-15 font-normal">
+               <TextAnimate duration={0.5} as="h1" animate="slideUp" by="word" className="max-w-3xl mx-auto text-4xl/[150%] text-center text-white uppercase mb-15 tracking-wide">
                   Cashmere, Crafted for the World&apos;s Finest Brands
                </TextAnimate>
                <motion.div
-                  variants={slideUpVariants.item}
+                  variants={SLIDE_UP_ANIMATION_VARIANTS.item}
                   initial="hidden"
                   whileInView="show"
                   exit="exit"

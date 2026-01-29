@@ -4,7 +4,7 @@ import { LenisProvider } from "@/lib/lenis/lenis";
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/global/navbar";
 import { baseFont, serifFont } from "@/lib/fonts/fonts";
-import Footer from "@/components/global/footer";
+import Footer, { FooterV2 } from "@/components/global/footer";
 
 export const metadata: Metadata = {
    title: "Umrao Cashmere",
@@ -23,7 +23,8 @@ export default function RootLayout({
          >
             <Navbar />
             <LenisProvider>{children}</LenisProvider>
-            <Footer />
+            {/* <Footer /> */}
+            <FooterV2 />
          </body>
       </html>
    );

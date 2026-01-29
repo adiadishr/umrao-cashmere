@@ -122,6 +122,12 @@
    }
 
    body {
-      @apply bg-background text-foreground font-base;
+      @apply bg-background text-foreground font-base !tracking-wide;
+   }
+}
+
+@layer components {
+   .overlay {
+      @apply absolute inset-0 z-1 bg-linear-to-b from-black/25 to-black/75;
    }
 }

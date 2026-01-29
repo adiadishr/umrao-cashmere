@@ -2,54 +2,81 @@
 
 import Image from "next/image";
 import { motion } from "motion/react";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useScroll, useMotionValueEvent } from 'motion/react'
 import { cn } from "@/lib/utils";
 import { ShoppingBasket } from "lucide-react";
+import Link from "next/link";
+import { NAVBAR_LINKS } from "@/constants/navbar-links";
+import { HAMBURGER_MENU_ANIMATION_VARIANTS, NAV_ANIMATION_VARIANTS } from "@/animations/animations";
 
-const HAMBURGER_MENU_ANIMATION_VARIANTS = {
-   top: {
-      open: {
-         rotate: "45deg",
-         top: '50%',
-      },
-      close: {
-         rotate: "0deg",
-      }
-   },
-   bottom: {
-      open: {
-         rotate: "-45deg",
-         top: '50%',
-      },
-      close: {
-         rotate: "0deg",
-      }
-   },
-};
-
-function NavLink({ children, isScrolled }: { children: React.ReactNode, isScrolled: boolean }) {
+function NavLink({ children, isScrolled, href = "/#" }: { children: React.ReactNode, isScrolled: boolean, href?: string }) {
    return (<>
-      <div className="relative flex flex-col h-full tracking-wider cursor-pointer group">
+      <Link href={href} className="relative flex flex-col h-full cursor-pointer group">
          <span className={cn("text-xs text-white uppercase duration-200 ease-out-quart", isScrolled && "text-black")}>{children}</span>
          <span className={cn("absolute h-px w-full bg-white -bottom-1.5 left-0 origin-left scale-x-0 group-hover:scale-x-100 duration-500 ease-out-quart", isScrolled && "bg-primary")} />
-      </div>
+      </Link>
    </>)
 }
 
 export default function Navbar() {
 
-   const [isMenuOpen, setIsMenuOpen] = useState(false);
+   const [isScrollingDown, setIsScrollingDown] = useState(false)
+   const [isMenuOpen, setIsMenuOpen] = useState(false)
    const [isScrolled, setIsScrolled] = useState(false)
 
    const { scrollY } = useScroll()
 
+   const lastY = useRef(0)
+   const downDistance = useRef(0)
+
    useMotionValueEvent(scrollY, 'change', (latest) => {
-      setIsScrolled(latest > (window.innerHeight * 0.65))
+
+      // --- isScrolled (threshold-based) ---
+      const scrolled = latest > window.innerHeight * 0.65
+      setIsScrolled(prev => (prev !== scrolled ? scrolled : prev))
+
+      // --- pause scroll logic when menu open ---
+      if (isMenuOpen) {
+         lastY.current = latest
+         return
+      }
+
+      // ---  isScrollingDown ---
+      const delta = latest - lastY.current
+
+      // dead-zone (trackpad noise)
+      if (Math.abs(delta) < 8) {
+         lastY.current = latest
+         return
+      }
+
+      // scrolling down
+      if (delta > 0) {
+         downDistance.current += delta
+         // hide only after meaningful scroll
+         if (downDistance.current > 80) {
+            setIsScrollingDown(true)
+         }
+      }
+
+      // scrolling up → reveal immediately
+      else {
+         downDistance.current = 0
+         setIsScrollingDown(false)
+      }
+
+      lastY.current = latest
+
    })
 
    return (<>
-      <nav className="fixed top-0 z-50 w-full">
+      <motion.nav
+         variants={NAV_ANIMATION_VARIANTS}
+         animate={isScrollingDown ? "hidden" : "visible"}
+         initial={false}
+         className="fixed top-0 z-50 w-full"
+      >
          <div className={cn("relative flex items-center justify-between max-h-21 h-21 px-15 duration-500 ease-out-quart border-b border-neutral-100/10", isScrolled && "bg-white h-18 border-transparent")}>
             {/* <div className="absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"> */}
             <div className="relative h-16 mr-12 aspect-2/1">
@@ -57,12 +84,9 @@ export default function Navbar() {
             </div>
             {/* </div> */}
             <div className="flex items-center gap-6">
-               <NavLink isScrolled={isScrolled}>Products</NavLink>
-               <NavLink isScrolled={isScrolled}>About</NavLink>
-               <NavLink isScrolled={isScrolled}>Process</NavLink>
-               <NavLink isScrolled={isScrolled}>Cashmere</NavLink>
-               <NavLink isScrolled={isScrolled}>Press</NavLink>
-               <NavLink isScrolled={isScrolled}>Contact</NavLink>
+               {NAVBAR_LINKS.map(({ href, label }, index) => (
+                  <NavLink key={index} isScrolled={isScrolled} href={href}>{label}</NavLink>
+               ))}
                {/* Cart */}
                <motion.button
                   className={cn(
@@ -94,6 +118,6 @@ export default function Navbar() {
                </motion.button>
             </div>
          </div>
-      </nav>
+      </motion.nav>
    </>)
 }
