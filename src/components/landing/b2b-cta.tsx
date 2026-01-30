@@ -42,7 +42,7 @@ export default function B2BCTA() {
       <section ref={container} className="px-3 h-[calc(100vh-72px-12px-12px)] relative max-w-7xl mx-auto">
          <div className="relative w-full h-full p-24 overflow-hidden">
             <motion.div style={{ y }} className="absolute inset-0 w-full h-[calc(100vh-72px-12px-12px+100px)] -top-25">
-               <Image alt="" src="/loom.jpg" fill className="z-0 object-cover object-center" priority />
+               <Image alt="" src="/landing.jpg" fill className="z-0 object-cover object-center" priority />
             </motion.div>
             <div className="overlay" />
             <motion.div ref={content} style={{ y: contentY }} className="absolute max-w-xl text-white z-2 top-24">
