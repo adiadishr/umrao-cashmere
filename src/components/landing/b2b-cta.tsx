@@ -39,7 +39,7 @@ export default function B2BCTA() {
          style={{ scaleX: scrollYProgress }}
          className="fixed top-0 left-0 w-full h-1 origin-left bg-primary z-9999"
       /> */}
-      <section ref={container} className="px-3 h-[calc(100vh-72px-12px-12px)] relative max-w-7xl mx-auto">
+      <section ref={container} className="px-3 h-[calc(100vh-72px-12px-12px)] relative max-w-7xl mx-auto mb-30">
          <div className="relative w-full h-full p-24 overflow-hidden">
             <motion.div style={{ y }} className="absolute inset-0 w-full h-[calc(100vh-72px-12px-12px+100px)] -top-25">
                <Image alt="" src="/landing.jpg" fill className="z-0 object-cover object-center" priority />

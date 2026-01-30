@@ -8,8 +8,8 @@ export default function Page() {
    return (<>
       <HeroBasicParallax />
       <AboutV2 />
+      <About />
       <FeaturedProducts />
       <B2BCTA />
-      <About />
    </>)
 }

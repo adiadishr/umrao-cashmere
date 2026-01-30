@@ -13,7 +13,7 @@ import Image from "next/image"
 export default function FeaturedProducts() {
 
    return (<>
-      <section className="py-48 pt-24 max-w-7xl mx-auto">
+      <section className="py-30 max-w-7xl mx-auto">
          <Carousel>
             <div className="flex items-end justify-between w-full mb-9 max-w-7xl mx-auto px-3">
                <div className="shrink-0">

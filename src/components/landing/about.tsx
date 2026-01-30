@@ -60,7 +60,7 @@ export function About() {
          style={{ scaleX: scrollYProgress }}
          className="fixed top-0 left-0 w-full h-1 origin-left bg-primary z-9999"
       /> */}
-      <div ref={container} className="grid w-full h-[calc(100vh-72px)] grid-cols-24 my-3 gap-x-3 px-3 max-w-7xl mx-auto">
+      <div ref={container} className="grid w-full h-[calc(100vh-72px)] grid-cols-24 gap-x-3 px-3 max-w-7xl mx-auto">
          <motion.div
             className="relative w-full h-full overflow-hidden col-span-13 py-24 px-15"
             style={{ y: leftY }}
@@ -143,7 +143,7 @@ export function AboutV2() {
          style={{ scaleX: scrollYProgress }}
          className="fixed top-0 left-0 w-full h-1 origin-left bg-primary z-9999"
       /> */}
-      <div ref={container} className="py-24 bg-neutral-50">
+      <div ref={container} className="py-30 bg-neutral-50">
          <motion.div style={{ y: contentY }}>
             <TextAnimate animate="slideUp" as="h5" by="word" duration={0.3} delay={0} className="mx-auto text-center uppercase w-fit text-primary mb-9">
                Our heritage
