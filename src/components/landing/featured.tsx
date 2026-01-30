@@ -13,12 +13,12 @@ import Image from "next/image"
 export default function FeaturedProducts() {
 
    return (<>
-      <section className="py-48 pt-24">
+      <section className="py-48 pt-24 max-w-7xl mx-auto">
          <Carousel>
             <div className="flex items-end justify-between w-full mb-9 max-w-7xl mx-auto px-3">
                <div className="shrink-0">
                   <TextAnimate duration={0.3} delay={0} as="h2" animation="slideUp" by="word" className="mb-1 uppercase text-primary">
-                     What we can do for you
+                     Our offerings
                   </TextAnimate>
                   <TextAnimate duration={0.3} delay={0.1} as="p" animation="slideUp" by="word" className="">
                      Explore seasonal collections, iconic accessories and exclusive items from our selection.

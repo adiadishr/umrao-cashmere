@@ -60,7 +60,7 @@ export function About() {
          style={{ scaleX: scrollYProgress }}
          className="fixed top-0 left-0 w-full h-1 origin-left bg-primary z-9999"
       /> */}
-      <div ref={container} className="grid w-full h-[calc(100vh-72px)] grid-cols-24 my-3 gap-x-3 px-3">
+      <div ref={container} className="grid w-full h-[calc(100vh-72px)] grid-cols-24 my-3 gap-x-3 px-3 max-w-7xl mx-auto">
          <motion.div
             className="relative w-full h-full overflow-hidden col-span-13 py-24 px-15"
             style={{ y: leftY }}
@@ -160,6 +160,7 @@ export function AboutV2() {
                viewport={{ margin: "250px" }}
                className="relative w-full overflow-hidden h-150 bg-primary"
             >
+               <div className="overlay" />
                <motion.div
                   style={{ y }}
                   className="absolute inset-0 w-full h-175 -top-25"
@@ -180,6 +181,7 @@ export function AboutV2() {
                viewport={{ margin: "250px" }}
                className="relative w-full overflow-hidden h-150 bg-primary"
             >
+               <div className="overlay" />
                <motion.div
                   style={{ y }}
                   className="absolute inset-0 w-full h-175 -top-25"
