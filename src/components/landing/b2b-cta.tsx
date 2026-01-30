@@ -16,6 +16,11 @@ export default function B2BCTA() {
       offset: ["start end", "end start"],
    })
 
+   const { scrollYProgress: contentYProgress } = useScroll({
+      target: container,
+      offset: ["start end", "end center"],
+   })
+
    const y = useTransform(scrollYProgress, [0, 1], [-100, 100])
 
    const [travel, setTravel] = useState(0)
@@ -27,22 +32,22 @@ export default function B2BCTA() {
       const contentHeight = content.current.offsetHeight
 
       // 24 * 4 = 96px (Tailwind)
-      const padding = 96 + 48
+      const padding = 96 * 2
 
       setTravel(containerHeight - contentHeight - padding)
    }, [])
 
-   const contentY = useTransform(scrollYProgress, [0, 1], [0, travel])
+   const contentY = useTransform(contentYProgress, [0, 1], [0, travel])
 
    return (<>
       {/* <motion.div
          style={{ scaleX: scrollYProgress }}
          className="fixed top-0 left-0 w-full h-1 origin-left bg-primary z-9999"
       /> */}
-      <section ref={container} className="px-3 h-[calc(100vh-72px-12px-12px)] relative max-w-7xl mx-auto mb-30">
+      <section ref={container} className="px-3 h-[calc(100vh-72px-12px-12px)] relative max-w-7xl mx-auto mb-48">
          <div className="relative w-full h-full p-24 overflow-hidden">
             <motion.div style={{ y }} className="absolute inset-0 w-full h-[calc(100vh-72px-12px-12px+100px)] -top-25">
-               <Image alt="" src="/blankets.png" fill className="z-0 object-cover object-center" priority />
+               <Image alt="" src="/loom.jpg" fill className="z-0 object-cover object-center" priority />
             </motion.div>
             <div className="overlay" />
             <motion.div ref={content} style={{ y: contentY }} className="absolute max-w-xl text-white z-2 top-24">

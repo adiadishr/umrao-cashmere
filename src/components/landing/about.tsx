@@ -34,7 +34,7 @@ export function About() {
    })
 
    const leftParallaxY = useTransform(scrollYProgress, [0, 1], [-100, 100])
-   const rightParallaxY = useTransform(scrollYProgress, [0, 1], [-100, 100])
+   const rightParallaxY = useTransform(scrollYProgress, [0, 1], [0, 100])
 
    const leftY = useTransform(scrollYProgress, [0, 1], [0, 0])
    const rightY = useTransform(scrollYProgress, [0, 1], [0, 0])
@@ -60,20 +60,20 @@ export function About() {
          style={{ scaleX: scrollYProgress }}
          className="fixed top-0 left-0 w-full h-1 origin-left bg-primary z-9999"
       /> */}
-      <div ref={container} className="grid w-full h-[calc(100vh-72px)] grid-cols-24 gap-x-3 px-3 max-w-7xl mx-auto">
-         <motion.div
+      <div ref={container} className="w-full h-[calc(100vh-72px)] px-3 max-w-7xl mx-auto">
+         {/* <motion.div
             className="relative w-full h-full overflow-hidden col-span-13 py-24 px-15"
             style={{ y: leftY }}
          >
             <div className="overlay" />
             <motion.div ref={content} style={{ y: contentY }} className="absolute max-w-xl text-white z-2 top-24">
-               <p className="mb-3 text-sm uppercase">Experience center</p>
-               <h2 className="mb-6 text-3xl uppercase font-medium">Interested in our products?</h2>
+               <p className="mb-3 text-sm uppercase">Cashmere</p>
+               <h2 className="mb-6 text-3xl uppercase font-medium">The World of Cashmere</h2>
                <p className="mb-9">
-                  Discover our experience centers and partner stores worldwide. Explore textures, craftsmanship, and collections in spaces designed to reflect our heritage and design philosophy.
+                  Sourced from the high plateaus of Inner Asia, cashmere is defined by rarity, patience, and tradition. For centuries, its exceptional softness and warmth have been shaped by climate, care, and craft passed down through generations.
                </p>
                <Link href="#" className="flex items-center gap-4 pb-1 text-white duration-300 border-b border-white w-fit hover:gap-6">
-                  <span className="text-xs uppercase">Find a location</span>
+                  <span className="text-xs uppercase">Learn about cashmere</span>
                   <ArrowRight size={18} strokeWidth={1.5} />
                </Link>
             </motion.div>
@@ -82,16 +82,16 @@ export function About() {
                className="absolute inset-0 h-[calc(100vh+100px)] -top-25 z-0"
             >
                <Image
-                  src="/store.jpg"
+                  src="/fabrics.jpg"
                   fill
                   alt="image"
                   className="object-cover object-center"
                   priority
                />
             </motion.div>
-         </motion.div>
+         </motion.div> */}
          <motion.div
-            className="relative w-full h-full overflow-hidden col-span-11 py-24 px-15"
+            className="relative h-full mx-auto overflow-hidden py-24 px-24"
             style={{ y: rightY }}
          >
             <motion.div ref={content} style={{ y: contentY }} className="absolute max-w-md text-white z-2 top-24">
@@ -115,7 +115,7 @@ export function About() {
                   muted
                   loop
                   playsInline
-                  className="absolute inset-0 z-0 object-cover w-full h-full"
+                  className="absolute inset-0 z-0 object-cover w-full h-full object-[100%]"
                   src="/video-2.MOV"
                />
             </motion.div>
@@ -143,7 +143,7 @@ export function AboutV2() {
          style={{ scaleX: scrollYProgress }}
          className="fixed top-0 left-0 w-full h-1 origin-left bg-primary z-9999"
       /> */}
-      <div ref={container} className="py-30 bg-neutral-50">
+      <div ref={container} className="py-48 bg-neutral-50">
          <motion.div style={{ y: contentY }}>
             <TextAnimate animate="slideUp" as="h5" by="word" duration={0.3} delay={0} className="mx-auto text-center uppercase w-fit text-primary mb-9">
                Our heritage
@@ -166,7 +166,7 @@ export function AboutV2() {
                   className="absolute inset-0 w-full h-175 -top-25"
                >
                   <Image
-                     src="/about-1.jpg"
+                     src="/wraps.jpg"
                      alt="img"
                      fill
                      className="object-cover object-center"
@@ -187,7 +187,7 @@ export function AboutV2() {
                   className="absolute inset-0 w-full h-175 -top-25"
                >
                   <Image
-                     src="/about-2.jpg"
+                     src="/machine.jpg"
                      alt="img"
                      fill
                      className="object-cover object-center"

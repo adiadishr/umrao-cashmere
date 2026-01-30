@@ -78,23 +78,23 @@ export function FooterV2() {
                <div className="w-25 -mt-5 mb-6 aspect-2/1 relative">
                   <Image src="/logo.png" fill alt="logo" className="object-cover object-center" />
                </div>
-               <p className="mb-3 uppercase">Subscribe to our newsletter</p>
-               <p className="mb-3 text-xs">Receive our newsletter and discover our world, collections, and latest news from us.</p>
+               <p className="text-sm mb-3 tracking-normal!">For inquiries, bespoke requests, or assistance, our team is here to support you.</p>
                <div className="flex items-center justify-between w-full py-3 mb-6 text-xs border-b">
                   <span>Enter your email address</span>
                   <ArrowRight size={16} strokeWidth={1.5} />
                </div>
-               <p className="text-xs">I acknowledge that my email address will be processed by Umrao Cashmere in accordance with the provisions of the Privacy Policy and Terms of Use which is compliant to the Privacy Act.</p>
+               <p className="text-sm tracking-normal!">By contacting us, you acknowledge that your information will be processed by Umrao Cashmere in accordance with our Privacy Policy and Terms of Use, in compliance with the Privacy Act.</p>
             </div>
             <div className="flex items-start justify-end gap-x-12">
                <div className="flex flex-col gap-3">
-                  <h5 className="uppercase text-primary">Press</h5>
-                  <FooterV2Link>News & Events</FooterV2Link>
-               </div>
-               <div className="flex flex-col gap-3">
                   <h5 className="uppercase text-primary">Get in touch</h5>
                   <FooterV2Link>Contact</FooterV2Link>
-                  <FooterV2Link>FAQs</FooterV2Link>
+                  <FooterV2Link>Help & Support</FooterV2Link>
+               </div>
+               <div className="flex flex-col gap-3">
+                  <h5 className="uppercase text-primary">Insights</h5>
+                  <FooterV2Link>The Art of Cashmere</FooterV2Link>
+                  <FooterV2Link>The World of Cashmere </FooterV2Link>
                </div>
                <div className="flex flex-col gap-3">
                   <h5 className="uppercase text-primary">Socials</h5>
@@ -105,19 +105,16 @@ export function FooterV2() {
                </div>
                <div className="flex flex-col gap-3">
                   <h5 className="uppercase text-primary">Company</h5>
-                  <FooterV2Link>About</FooterV2Link>
-                  <FooterV2Link>Products</FooterV2Link>
+                  <FooterV2Link>Brand Heritage</FooterV2Link>
+                  <FooterV2Link>Press</FooterV2Link>
+                  <FooterV2Link>Collections</FooterV2Link>
                   <FooterV2Link>Experience Center</FooterV2Link>
-                  <FooterV2Link>Careers</FooterV2Link>
                </div>
             </div>
          </div>
-         <div className="flex items-center justify-between w-full">
+         <div className="flex items-center justify-center w-full">
             <p className="text-xs text-background">
                &copy; Umrao Cashmere, 2026. All rights reserved.
-            </p>
-            <p className="text-xs text-background">
-               Technology Partner - <Link target="_blank" href="https://www.infinitydigitalagency.com.np" className="underline cursor-pointer text-background">Infinity Digital Agency</Link>
             </p>
          </div>
       </footer>

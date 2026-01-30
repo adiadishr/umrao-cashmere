@@ -128,6 +128,6 @@
 
 @layer components {
    .overlay {
-      @apply absolute inset-0 z-1 bg-linear-to-b from-black/25 to-black/75;
+      @apply absolute inset-0 z-1 bg-linear-to-b from-black/30 to-black/60;
    }
 }

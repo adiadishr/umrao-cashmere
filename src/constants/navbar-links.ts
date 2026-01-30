@@ -1,5 +1,5 @@
 export const NAVBAR_LINKS = [
-   { href: "/#", label: "Products" },
+   { href: "/#", label: "Collections" },
    { href: "/#", label: "Brand Heritage" },
    { href: "/#", label: "Craftsmanship" },
    { href: "/#", label: "Cashmere" },
