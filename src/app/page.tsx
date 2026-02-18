@@ -4,6 +4,7 @@ import FeaturedProducts from "@/components/landing/featured";
 import { HeroBasicParallax } from "@/components/landing/hero";
 import { TextAnimate } from "@/components/ui/text-animate";
 import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Page() {
@@ -12,17 +13,61 @@ export default function Page() {
       <HeroBasicParallax />
       <AboutV2 />
       <About />
-      <div className="max-w-5xl mx-auto py-48">
-         <TextAnimate as="h5" className="mb-6 uppercase text-center text-primary">The World of Cashmere</TextAnimate>
-         {/* <TextAnimate as="h2" delay={0.1} className="mb-9 text-3xl uppercase font-medium text-primary text-center">The World of Cashmere</TextAnimate> */}
-         <div className="max-w-4xl mx-auto">
-            <TextAnimate as="p" delay={0.3} className="mb-12 text-center">
-               Sourced from the high plateaus of Inner Asia, cashmere is defined by rarity, patience, and tradition. For centuries, its exceptional softness and warmth have been shaped by climate, care, and craft passed down through generations.
+      <div className="py-24">
+         <div className="mx-auto max-w-5xl px-3 mb-24">
+            <TextAnimate
+               as="h5"
+               className="mb-6 text-center uppercase tracking-wide text-primary"
+            >
+               The World of Cashmere
             </TextAnimate>
-            <Link href="#" className="flex items-center gap-4 pb-1 text-foreground duration-300 border-b border-foreground w-fit hover:gap-6 mx-auto">
-               <span className="text-sm uppercase">Discover Here</span>
-               {/* <ArrowRight size={18} strokeWidth={1.5} /> */}
-            </Link>
+            <div className="mx-auto max-w-4xl px-3">
+               <TextAnimate
+                  as="p"
+                  delay={0.3}
+                  className="mb-12 text-center leading-relaxed"
+               >
+                  Sourced from the high plateaus of Inner Asia,
+                  cashmere is defined by rarity, patience, and
+                  tradition. For centuries, its exceptional softness
+                  and warmth have been shaped by climate, care, and
+                  craft passed down through generations.
+               </TextAnimate>
+               <Link
+                  href="#"
+                  className="group mx-auto flex w-fit items-center gap-4 border-b border-foreground pb-1 text-foreground duration-300 hover:gap-6"
+               >
+                  <span className="text-sm font-medium uppercase">
+                     Discover Here
+                  </span>
+               </Link>
+            </div>
+         </div>
+         <div className="max-w-7xl px-3 mx-auto">
+            <div className="grid md:grid-cols-[1fr_1fr] items-center">
+               <div className="relative w-full h-96">
+                  <Image src="/about-1.jpg" fill alt="image" className="object-cover object-center" />
+               </div>
+               <div className="md:pl-12">
+                  <p className="mb-3 text-sm uppercase">Craftsmanship</p>
+                  <h2 className="mb-6 text-3xl uppercase font-medium">Made With Intention</h2>
+                  <p className="mb-9">
+                     Every piece begins with skilled hands and time-honored techniques. From raw material to final finish, our process is carefully considered.
+                  </p>
+               </div>
+            </div>
+            <div className="grid md:grid-cols-[1fr_1fr] items-center">
+               <div className="relative w-full h-96 md:order-2">
+                  <Image src="/about-1.jpg" fill alt="image" className="object-cover object-center" />
+               </div>
+               <div className="md:order-1 md:pr-12">
+                  <p className="mb-3 text-sm uppercase">Craftsmanship</p>
+                  <h2 className="mb-6 text-3xl uppercase font-medium">Made With Intention</h2>
+                  <p className="mb-9">
+                     Every piece begins with skilled hands and time-honored techniques. From raw material to final finish, our process is carefully considered.
+                  </p>
+               </div>
+            </div>
          </div>
       </div>
       <FeaturedProducts />

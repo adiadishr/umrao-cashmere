@@ -13,7 +13,7 @@ import Image from "next/image"
 export default function FeaturedProducts() {
 
    return (<>
-      <section className="pb-48 max-w-7xl mx-auto">
+      <section className="pb-24">
          <Carousel>
             <div className="flex items-end justify-between w-full mb-9 max-w-7xl mx-auto px-3">
                <div className="shrink-0">
@@ -36,7 +36,7 @@ export default function FeaturedProducts() {
                      <CarouselItem className="pl-3 basis-[33.33%]" key={index}>
                         <div className="relative h-132 p-15 flex flex-col justify-end">
                            <Image fill src={src} alt="image" className="object-cover object-center z-0" />
-                           <div className="absolute w-full h-full inset-0 bg-linear-to-b from-foreground/35 to-foreground/75 z-1" />
+                           <div className="absolute w-full h-full inset-0 bg-linear-to-b from-black/35 to-black/75 z-1" />
                            <div className="relative z-2 text-background">
                               <p className="text-xs uppercase mb-3">{caption}</p>
                               <p className="text-2xl uppercase font-medium">{label}</p>

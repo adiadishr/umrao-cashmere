@@ -45,7 +45,7 @@ export function HeroBasicParallax() {
          {/* Overlay */}
          <motion.div
             style={{ opacity: opacity }}
-            className="absolute inset-0 w-full h-full bg-foreground z-1"
+            className="absolute inset-0 w-full h-full bg-black z-1"
          />
          {/* Content */}
          <div className="container relative px-5 mx-auto z-2">

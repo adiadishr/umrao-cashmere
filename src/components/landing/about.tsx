@@ -143,8 +143,11 @@ export function AboutV2() {
          style={{ scaleX: scrollYProgress }}
          className="fixed top-0 left-0 w-full h-1 origin-left bg-primary z-9999"
       /> */}
-      <div ref={container} className="py-48 bg-neutral-50">
-         <motion.div style={{ y: contentY }}>
+      <div ref={container} className="py-30 bg-neutral-50 relative">
+         {/* Texture */}
+         <Image src="/texture.jpg" className="object-cover opacity-25 z-1" fill alt="image" />
+         {/* Text */}
+         <motion.div className="relative z-2" style={{ y: contentY }}>
             <TextAnimate animate="slideUp" as="h5" by="word" duration={0.3} delay={0} className="mx-auto text-center uppercase w-fit text-primary mb-9">
                Our heritage
             </TextAnimate>
@@ -152,7 +155,8 @@ export function AboutV2() {
                Umrao Cashmere is a vertically integrated cashmere manufacturer specializing in high-grade fabrics for global fashion brands. We work behind the scenes — supplying refined cashmere textiles that become exceptional garments.
             </TextAnimate>
          </motion.div>
-         <div className="grid max-w-4xl grid-cols-2 mx-auto gap-x-3 mb-15">
+         {/* Images */}
+         <div className="grid max-w-4xl grid-cols-2 mx-auto gap-x-3 mb-15 relative z-2">
             <motion.div
                variants={SCALE_ANIMATION_VARIANTS}
                initial="hidden"
