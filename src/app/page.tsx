@@ -13,7 +13,7 @@ export default function Page() {
       <HeroBasicParallax />
       <AboutV2 />
       <About />
-      <div className="py-24">
+      {/* <div className="py-24">
          <div className="mx-auto max-w-5xl px-3 mb-24">
             <TextAnimate
                as="h5"
@@ -69,7 +69,7 @@ export default function Page() {
                </div>
             </div>
          </div>
-      </div>
+      </div> */}
       <FeaturedProducts />
       <B2BCTA />
    </>)
